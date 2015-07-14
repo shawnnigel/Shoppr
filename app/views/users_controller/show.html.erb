@@ -1,0 +1,41 @@
+
+<%= image_tag @user.image %> 
+
+<h1><%=@user.name%></h1>
+<h2>Products</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= Product.human_attribute_name(:id) %></th>
+      <th><%= Product.human_attribute_name(:product_name) %></th>
+      <th><%= Product.human_attribute_name(:product_description) %></th>
+      <th><%= Product.human_attribute_name(:price) %></th>
+      <!-- <th><%= Product.human_attribute_name(:author) %></th> -->
+      <th><%= Product.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @products.each do |product| %>
+    <% if product.user_id=@user.id%>
+      <tr>
+        <td><%= link_to product.id, product_path(product) %></td>
+        <td><%= product.product_name %></td>
+        <td><%= product.product_description %></td>
+        <td><%= product.price %></td>
+        <!-- <td><%= product.author %></td> -->
+        <td><%=l product.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_product_path(product), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      product_path(product),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

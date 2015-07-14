@@ -23,6 +23,13 @@
     <%= error_span(@product[:product_name]) %>
   </div>
   <div class="control-group">
+    <%= f.label :image, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :image, :class => 'form-control' %>
+    </div>
+    <%= error_span(@product[:image]) %>
+  </div>
+  <div class="control-group">
     <%= f.label :product_description, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :product_description, :class => 'form-control' %>

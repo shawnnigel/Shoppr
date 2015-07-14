@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
+  get 'user/:id'=>'users_controller#show'
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  # devise_for :users
+ devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
   #get 'static_pages/home'
-
+  
   get 'about' => 'static_pages#about'
-
+  
   resources :products
 
   # The priority is based upon order of creation: first created -> highest priority.
