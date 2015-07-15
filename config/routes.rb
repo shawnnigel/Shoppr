@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :carts
+
   get 'user/:id'=>'users_controller#show'
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
