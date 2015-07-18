@@ -1,4 +1,4 @@
 == README
-Another of my practice apps with Bootstrap 3 front-end and Devise for Authentication.
-My first time trying out Facebook API for logging in users and getting their public info(name,email) + profile picture
-<tt>rake doc:app</tt>.
+<p>Another of my practice apps with Bootstrap 3 front-end and Devise for Authentication.
+<p>My first time trying out Facebook API for logging in users and getting their public info(name,email) + profile picture
+
